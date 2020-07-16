@@ -1,7 +1,7 @@
 import logging
 import pprint
+import json
 from flask import Flask
-from flask import jsonify
 from flask import request
 from pprint import pformat
 
@@ -23,11 +23,12 @@ planets = [
 
 @app.route('/planets/<id>')
 def one_planet(id):
-    return jsonify(planets[int(id)-1])
+    return json.dumps(planets[int(id)-1]), 200, {'Content-Type': 'application/json'}
 
 @app.route('/planets')
 def list_planets():
-    return jsonify(planets)
+    return json.dumps(planets), 200, {'Content-Type': 'application/json'}
+
 
 @app.route('/webhook', methods=['GET','POST'])
 def webhook():
