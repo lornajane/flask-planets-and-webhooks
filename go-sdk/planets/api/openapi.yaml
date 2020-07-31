@@ -1,0 +1,80 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: github@lornajane.net
+    name: Lorna Mitchell
+    url: https://github.com/lornajane/flask-planets-and-webhooks
+  description: Simple flask-backed API showing some example API endpoints and with
+    webhook debugging features.
+  title: Planets and Webhooks Demo API
+  version: 0.0.1
+externalDocs:
+  description: GitHub project for the code and information about this API
+  url: https://github.com/lornajane/flask-planets-and-webhooks
+servers:
+- description: Sample project running locally
+  url: http://localhost:5000
+tags:
+- description: API containing solar system data
+  name: planets
+paths:
+  /planets:
+    get:
+      description: Returns a list of all the planets that are stored in the system.
+      operationId: allPlanets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/planet'
+                type: array
+          description: Planets in a list
+      summary: List all planets
+      tags:
+      - planets
+  /planets/{planetId}:
+    get:
+      description: Get the data relating to one planet
+      operationId: onePlanet
+      parameters:
+      - explode: false
+        in: path
+        name: planetId
+        required: true
+        schema:
+          example: 4
+          type: number
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/planet'
+          description: Planets in a list
+      summary: Fetch one planet by position
+      tags:
+      - planets
+components:
+  schemas:
+    planet:
+      example:
+        moons: 62
+        name: Saturn
+        position: 6
+      properties:
+        name:
+          description: Name of planet
+          example: Saturn
+          type: string
+        position:
+          description: Order in place from the sun
+          example: 6
+          type: number
+        moons:
+          description: Number of moons, according to NASA
+          example: 62
+          type: number
+      type: object
