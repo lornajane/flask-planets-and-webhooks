@@ -1,10 +1,10 @@
-package main
+package goplanet
 
 import (
 	"context"
 	"fmt"
 
-	"github.com/lornajane/flask-planets-and-webhooks/go-sdk/planets"
+	"github.com/lornajane/flask-planets-and-webhooks/goplanet/planets"
 )
 
 func AllPlanets() []planets.Planet {
