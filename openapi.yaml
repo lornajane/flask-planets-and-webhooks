@@ -2,7 +2,13 @@ openapi: 3.0.3
 info:
   title: Planets and Webhooks Demo API
   version: 0.0.1
-  description: Simple flask-backed API showing some example API endpoints and with webhook debugging features.
+  description: >-
+    Simple flask-backed API showing some example API endpoints and with webhook debugging features.
+
+    * public repo
+    * example code only
+
+    _Who didn't dream of growing up to be an astronaut?_
   contact:
     name: Lorna Mitchell
     url: https://github.com/lornajane/flask-planets-and-webhooks
