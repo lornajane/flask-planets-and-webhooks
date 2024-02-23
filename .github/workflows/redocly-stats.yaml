@@ -13,4 +13,4 @@ jobs:
       - name: Install Redocly CLI
         run: npm install -g @redocly/cli@latest
       - name: Get stats
-        run: redocly stats --format=markdown openapi.yaml >> $GITHUB_STEP_SUMMARY 2>&1
+        run: redocly stats --format=markdown museum.yaml >> $GITHUB_STEP_SUMMARY 2>&1
