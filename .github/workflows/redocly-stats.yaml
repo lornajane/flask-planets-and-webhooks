@@ -8,5 +8,9 @@ jobs:
     steps:
       - name: Check out repo's default branch
         uses: actions/checkout@v4
+      - name: Modern npm/npx
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
       - name: Get stats
         run: npx @redocly/cli@latest stats --format=markdown openapi.yaml >> $GITHUB_STEP_SUMMARY 2>&1
