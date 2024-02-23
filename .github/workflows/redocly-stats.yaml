@@ -1,0 +1,12 @@
+name: Get API stats
+on: push
+
+jobs:
+  get_stats:
+    name: Stats as a job summary
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo's default branch
+        uses: actions/checkout@v4
+      - name: Get stats
+        run: npx @redocly/cli@latest stats --format=markdown openapi.yaml >> $GITHUB_STEP_SUMMARY 2>&1
